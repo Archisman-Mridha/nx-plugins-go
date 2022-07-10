@@ -1,0 +1,24 @@
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/http"
+    "<%= projectName %>/routes"
+)
+
+const port= "4000"
+
+func main( ) {
+    httpServer := &http.Server {
+
+        Addr: fmt.Sprintf(":%s", port),
+        Handler: routes.CreateRouteHandler( ),
+    }
+
+    log.Println("starting http server at port " + port)
+
+    serverError := httpServer.ListenAndServe( )
+
+    if serverError != nil { log.Panic(serverError) }
+}

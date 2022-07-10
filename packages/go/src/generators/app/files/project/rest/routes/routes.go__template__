@@ -1,0 +1,16 @@
+package routes
+
+import (
+	"net/http"
+	"<%= projectName %>/handlers"
+
+	"github.com/gorilla/mux"
+)
+
+func CreateRouteHandler( ) http.Handler {
+    routeHandler := mux.NewRouter( )
+
+    routeHandler.HandleFunc("/", handlers.HomeRouteHandler)
+
+    return routeHandler
+}
