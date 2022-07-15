@@ -15,6 +15,10 @@ export default async function(tree: Tree, providedOptions: CLIOptions) {
 
 			run: {
 				executor: "nx-go-plugin:run"
+			},
+
+            build: {
+				executor: "nx-go-plugin:build"
 			}
         }
     })
@@ -22,7 +26,7 @@ export default async function(tree: Tree, providedOptions: CLIOptions) {
     addFilesToTree(tree, providedOptions)
     updateWorkspaceConfiguration(tree, providedOptions)
 
-    formatFiles(tree)
+    await formatFiles(tree)
 }
 
 function addFilesToTree(tree: Tree, providedOptions: CLIOptions) {

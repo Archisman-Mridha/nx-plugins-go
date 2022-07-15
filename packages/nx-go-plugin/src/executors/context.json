@@ -1,0 +1,18 @@
+{
+    "root": "/home/archi/Documents/go-microservices",
+    "target": { "executor": "nx-go-plugin:run" },
+    "workspace": { "projects": { "auth": {
+        "root": "apps/auth",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "projectType": "application",
+        "sourceRoot": "apps/auth",
+        "targets": { "run": { "executor": "nx-go-plugin:run" } },
+        "tags": [],
+        "files": [] }, "version": 2
+    }},
+    "projectName": "auth",
+    "targetName": "run",
+    "configurationName": "undefined",
+    "cwd": "/home/archi/Documents/go-microservices",
+    "isVerbose": false
+}

@@ -1,19 +1,20 @@
-import { RunExecutorSchema } from "./schema"
+import { BuildExecutorSchema } from "./schema"
 import { spawn } from "child_process"
 import { ExecutorContext } from "@nrwl/devkit"
 
-export default async function runExecutor(options: RunExecutorSchema, context: ExecutorContext) {
+export default async function buildExecutor(options: BuildExecutorSchema, context: ExecutorContext) {
     try {
         await new Promise<void>(function(resolve, reject) {
 
-            spawn(`go run ./${ context.workspace.projects[context.projectName].sourceRoot }`, {
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            spawn(`go build ./${ context.workspace.projects[context.projectName!].sourceRoot } -o ./${ context.workspace.projects[context.projectName!].sourceRoot }/build`, {
 
                 stdio: "inherit",
                 shell: true,
                 cwd: context.root
             })
                 .on("error", reject)
-                .on("close", resolve)
+                .on("exit", resolve)
         })
 
         return { success: true }
