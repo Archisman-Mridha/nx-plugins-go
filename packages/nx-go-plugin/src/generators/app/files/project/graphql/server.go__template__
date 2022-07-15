@@ -3,8 +3,8 @@ package main
 import (
 	"log"
 	"net/http"
-	"<%= projectName %>/graph"
-	"<%= projectName %>/graph/generated"
+	"<%= projectName %>/resolvers"
+	"<%= projectName %>/generated"
 
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/playground"
@@ -16,7 +16,7 @@ func main( ) {
 	graphQLServer := handler.NewDefaultServer(
         generated.NewExecutableSchema(generated.Config {
 
-            Resolvers: &graph.Resolver{ },
+            Resolvers: &resolvers.Resolver{ },
         }),
     )
 

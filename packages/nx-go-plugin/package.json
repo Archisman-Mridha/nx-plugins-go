@@ -1,6 +1,7 @@
 {
-    "name": "go",
-    "version": "0.0.1",
+    "name": "nx-go-plugin",
+    "author": "Archsiman Mridha",
+    "version": "0.0.6",
     "main": "src/index.js",
     "generators": "./generators.json",
     "executors": "./executors.json"

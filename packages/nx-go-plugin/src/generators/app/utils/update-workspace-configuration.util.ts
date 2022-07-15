@@ -14,7 +14,7 @@ export function updateWorkspaceConfiguration(tree: Tree, providedOptions: CLIOpt
             .reduce(
                 (accumulator, currentLine) => {
                     if(currentLine === ")")
-                        accumulator += "\n" + `    apps/${ providedOptions.projectName }`
+                        accumulator += "\n" + `    ${ providedOptions.projectRoot }`
 
                     accumulator += "\n" + currentLine
 
